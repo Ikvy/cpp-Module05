@@ -6,28 +6,19 @@
 /*   By: mmidon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:58:12 by mmidon            #+#    #+#             */
-/*   Updated: 2023/02/28 15:56:05 by mmidon           ###   ########.fr       */
+/*   Updated: 2023/03/09 15:58:44 by mmidon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name("default"), grade(150)
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(150)
 {
-	try
-	{
-		if (grade < 1)
-			throw (Bureaucrat::GradeTooHighException());
-		if (grade > 150)
-			throw (Bureaucrat::GradeTooLowException());
-	}
-	catch(std::exception &e)
-	{
-			std::cout << "Exeption caught : " << e.what() << std::endl;
-			return;
-	}
+	if (grade < 1)
+		throw (Bureaucrat::GradeTooHighException());
+	if (grade > 150)
+		throw (Bureaucrat::GradeTooLowException());
 	std::cout << "I like to create bureaucrats" << std::endl;
-	this->name = name;
 	this->grade = grade;
 }
 
@@ -63,4 +54,20 @@ std::ostream& operator<<(std::ostream& ostream, Bureaucrat const& b)
 {
 	std::cout << b.getName() << ",  bureaucrat grade " << b.getGrade();
 	return (ostream);
+}
+
+void	Bureaucrat::gradeUp(const int value)
+{
+	if (this->grade - value < 1)
+		throw (Bureaucrat::GradeTooHighException);
+	else
+		this->grade -= value;
+}
+
+void	Bureaucrat::gradeDown(const int value)
+{
+	if (this->grade - value > 150)
+		throw (Bureaucrat::GradeTooLowException);
+	else
+		this->grade += value;
 }

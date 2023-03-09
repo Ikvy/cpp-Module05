@@ -6,7 +6,7 @@
 /*   By: mmidon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:21:30 by mmidon            #+#    #+#             */
-/*   Updated: 2023/03/07 11:08:54 by mmidon           ###   ########.fr       */
+/*   Updated: 2023/03/09 15:15:05 by mmidon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include <exception>
+
+class Form; ///forward declaration uwu
 
 class Bureaucrat{
 
@@ -25,6 +27,7 @@ class Bureaucrat{
 
 		std::string		getName() const;
 		unsigned int	getGrade() const;
+		void			signForm(Form &form);
 
 		class GradeTooHighException : public std::exception{
 		public:

@@ -6,11 +6,17 @@
 /*   By: mmidon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:29:58 by mmidon            #+#    #+#             */
-/*   Updated: 2023/03/08 13:27:16 by mmidon           ###   ########.fr       */
+/*   Updated: 2023/03/09 15:12:58 by mmidon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#pragma once
+
+#include <iostream>
+#include <exception>
+//#include "Bureaucrat.hpp"
+
+class Bureaucrat; //uwu bis
 
 class Form {
 
@@ -28,9 +34,6 @@ class Form {
 		unsigned int getExecGrade() const;
 
 		//set
-		//void setIsSigned(const bool& b);
-		//void setSignedGrade(const unsigned int& i) const;
-		//void setExecGrade(const unsigned int& i) const;
 		void beSigned(const Bureaucrat& who);
 		
 		//exeptions

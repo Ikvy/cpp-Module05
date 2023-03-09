@@ -6,29 +6,21 @@
 /*   By: mmidon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:58:12 by mmidon            #+#    #+#             */
-/*   Updated: 2023/03/07 10:19:15 by mmidon           ###   ########.fr       */
+/*   Updated: 2023/03/09 15:38:37 by mmidon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name("default"), grade(150)
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(150)
 {
-	try
-	{
-		if (grade < 1)
-			throw (Bureaucrat::GradeTooHighException());
-		if (grade > 150)
-			throw (Bureaucrat::GradeTooLowException());
-	}
-	catch(std::exception &e)
-	{
-			std::cout << "Exeption caught : " << e.what() << std::endl;
-			return;
-	}
-	std::cout << "I like to create bureaucrats" << std::endl;
-	this->name = name;
+	if (grade < 1)
+		throw (Bureaucrat::GradeTooHighException());
+	if (grade > 150)
+		throw (Bureaucrat::GradeTooLowException());
 	this->grade = grade;
+	std::cout << "I like to create bureaucrats" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& cpy)
@@ -63,4 +55,12 @@ std::ostream& operator<<(std::ostream& ostream, Bureaucrat const& b)
 {
 	std::cout << b.getName() << ",  bureaucrat grade " << b.getGrade();
 	return (ostream);
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	if (form.getIsSigned() == true)
+		std::cout << this->name << " couldn’t sign " << form.getName() << " because it's already signed" << std::endl;
+	else
+		form.beSigned(*this);
 }
