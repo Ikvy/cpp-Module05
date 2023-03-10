@@ -6,13 +6,12 @@
 /*   By: mmidon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:00:50 by mmidon            #+#    #+#             */
-/*   Updated: 2023/03/10 16:53:23 by mmidon           ###   ########.fr       */
+/*   Updated: 2023/03/10 16:30:46 by mmidon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
-
 
 Form::Form(const std::string name, unsigned int signGrade, unsigned int execGrade) : name(name), signGrade(signGrade), execGrade(execGrade)
 {
@@ -61,6 +60,14 @@ unsigned int Form::getExecGrade() const
 unsigned int Form::getSignedGrade() const
 {
 	return (this->signGrade);
+}
+
+
+//use
+
+void Form::setSigned(bool value)
+{
+	this->isSigned = value;
 }
 
 void Form::beSigned(const Bureaucrat& who)

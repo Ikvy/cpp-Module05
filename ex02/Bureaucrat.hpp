@@ -6,7 +6,7 @@
 /*   By: mmidon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:21:30 by mmidon            #+#    #+#             */
-/*   Updated: 2023/03/10 11:16:40 by mmidon           ###   ########.fr       */
+/*   Updated: 2023/03/10 17:14:04 by mmidon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Bureaucrat{
 		std::string		getName() const;
 		unsigned int	getGrade() const;
 		void			signForm(Form &form);
+		void			executeForm(Form const &form);
 
 		class GradeTooHighException : public std::exception{
 		public:
