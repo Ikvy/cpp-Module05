@@ -6,7 +6,7 @@
 /*   By: mmidon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:21:30 by mmidon            #+#    #+#             */
-/*   Updated: 2023/03/09 15:15:05 by mmidon           ###   ########.fr       */
+/*   Updated: 2023/03/10 10:52:35 by mmidon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ class Bureaucrat{
 		Bureaucrat(const Bureaucrat& cpy);
 		~Bureaucrat();
 		Bureaucrat&		operator=(const Bureaucrat& a);
+
+		void			gradeUp(const int value);
+		void			gradeDown(const int value);
 
 		std::string		getName() const;
 		unsigned int	getGrade() const;

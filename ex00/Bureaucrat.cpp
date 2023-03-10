@@ -6,7 +6,7 @@
 /*   By: mmidon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:58:12 by mmidon            #+#    #+#             */
-/*   Updated: 2023/03/09 15:58:44 by mmidon           ###   ########.fr       */
+/*   Updated: 2023/03/10 10:56:53 by mmidon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,15 @@ std::ostream& operator<<(std::ostream& ostream, Bureaucrat const& b)
 void	Bureaucrat::gradeUp(const int value)
 {
 	if (this->grade - value < 1)
-		throw (Bureaucrat::GradeTooHighException);
+		throw (Bureaucrat::GradeTooHighException());
 	else
 		this->grade -= value;
 }
 
 void	Bureaucrat::gradeDown(const int value)
 {
-	if (this->grade - value > 150)
-		throw (Bureaucrat::GradeTooLowException);
+	if (this->grade + value > 150)
+		throw (Bureaucrat::GradeTooLowException());
 	else
 		this->grade += value;
 }

@@ -6,7 +6,7 @@
 /*   By: mmidon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:58:12 by mmidon            #+#    #+#             */
-/*   Updated: 2023/03/09 15:38:37 by mmidon           ###   ########.fr       */
+/*   Updated: 2023/03/10 10:57:38 by mmidon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,20 @@ void Bureaucrat::signForm(Form &form)
 		std::cout << this->name << " couldn’t sign " << form.getName() << " because it's already signed" << std::endl;
 	else
 		form.beSigned(*this);
+}
+
+void	Bureaucrat::gradeUp(const int value)
+{
+	if (this->grade - value < 1)
+		throw (Bureaucrat::GradeTooHighException());
+	else
+		this->grade -= value;
+}
+
+void	Bureaucrat::gradeDown(const int value)
+{
+	if (this->grade + value > 150)
+		throw (Bureaucrat::GradeTooLowException());
+	else
+		this->grade += value;
 }
